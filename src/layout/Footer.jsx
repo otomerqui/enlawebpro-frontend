@@ -16,7 +16,7 @@ export const Footer = () => {
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto mb-8 flex flex-col items-center">
                     <img
-                        src="../public/logo-enlawebpro.webp"
+                        src="/logo-enlawebpro.webp"
                         className="w-25 h-25 mb-4"
                     />
                     <p className="text-center text-muted-foreground text-lg">Your business is ready to make waves, and we’re here to help. Transform bold ideas into a powerful online presence.</p>
