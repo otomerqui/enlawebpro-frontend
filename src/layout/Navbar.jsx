@@ -8,6 +8,15 @@ const navLinks = [
     {href: "#whyus", label: "Why US"},   
 ]
 
+const navLinksMobile = [
+    {href: "#home", label: "Home"},
+    {href: "#services", label: "Services"},
+    {href: "#projects", label: "Projects"},
+    {href: "#whyus", label: "Why US"},
+    {href: "#contact", label: "Contact Us"},   
+]
+
+
 export const Navbar = () => {
     const [isMobileMenuOpen,setIsMobileMenuOpen] = useState(false);
     const [isScrolled,setIsScrolled] = useState(false);
@@ -86,7 +95,7 @@ export const Navbar = () => {
             {isMobileMenuOpen && 
                 <div className="lg:hidden glass animate-fade-in">
                     <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-                        {navLinks.map( (link, index) => (
+                        {navLinksMobile.map( (link, index) => (
                             <a 
                                 href={link.href} 
                                 key={index} 
@@ -95,7 +104,8 @@ export const Navbar = () => {
                             >
                                 {link.label}
                             </a>
-                        ))}                    
+                        ))} 
+                                           
                     </div>
                 </div>
             }
