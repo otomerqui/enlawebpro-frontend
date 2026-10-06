@@ -1,6 +1,7 @@
 import { useInView } from "../hooks/useInViews";
 import { AlertCircle, CheckCircle, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const contactInfo = [
   {
