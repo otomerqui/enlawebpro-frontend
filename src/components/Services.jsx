@@ -1,5 +1,5 @@
 import { Brush, Code2, MonitorPc, Paintbrush, Smartphone } from "lucide-react";
-import { useInView } from "../hooks/useInViews";
+import ScrollFadeIn from "./ScrollFadeIn";
 
 const services = [
     {
@@ -36,42 +36,42 @@ const services = [
 ]
 
 export const Services = () => {
-    const [ref, isVisible] = useInView();
+  
 
     return (
         <section id="services" className="py-20 md:py-32 relative overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
-                <h2 
-                    ref={ref} 
-                    className={`text-4xl md:text-5xl font-bold leading-tight text-secondary-foreground text-center fade-in ${isVisible ? 'visible' : ''}`}
-                >
-                    Solutions that
-                    <span className="font-serif italic font-normal text-white"> fit your vision</span>
-                </h2>
-                <div className="space-y-4 text-muted-foreground mb-10">
-                    <p 
-                        ref={ref} 
-                        className={`text-center fade-in ${isVisible ? 'visible' : ''}`}
+                <ScrollFadeIn>
+                    <h2 
+                        className="text-4xl md:text-5xl font-bold leading-tight text-secondary-foreground text-center"
                     >
-                        We offer everything you need to thrive online. Explore our services and see how we can help you achieve your goals.
-                    </p>                            
-                </div>
-                {/* Services grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {services.map( (service,idx) => (
-                        <div 
-                            key={idx}
-                            ref={ref}  
-                            className={`glass p-6 rounded-2xl fade-in ${isVisible ? 'visible' : ''}`}
-                            style={{transitionDelay: `${(idx + 1)*100}ms`}}
+                        Solutions that
+                        <span className="font-serif italic font-normal text-white"> fit your vision</span>
+                    </h2>
+                </ScrollFadeIn>               
+                <div className="space-y-4 text-muted-foreground mb-10">
+                     <ScrollFadeIn delay={100}>
+                        <p 
+                            className="text-center"
                         >
-                            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20">
-                                <service.icon className="w-6 h-6 text-primary"/>
-                            </div>
-                            <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
-                            <p className="text-sm text-muted-foreground">{service.description}</p>
+                            We offer everything you need to thrive online. Explore our services and see how we can help you achieve your goals.
+                        </p>  
+                    </ScrollFadeIn>                          
+                </div>
+                
+                {/* Services grid */}               
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services.map((service, idx) => (
+                    <ScrollFadeIn key={idx} delay={(idx % 3) * 120} className="h-full">
+                    <div className="glass h-full p-6 rounded-2xl">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20">
+                        <service.icon className="w-6 h-6 text-primary" />
                         </div>
-                    ))}
+                        <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
+                        <p className="text-sm text-muted-foreground">{service.description}</p>
+                    </div>
+                    </ScrollFadeIn>
+                ))}
                 </div>
             </div>
         </section>

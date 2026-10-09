@@ -21,6 +21,21 @@
 
   --color-highlight: #f5a623;
   --color-surface: #1a2329;
+
+  --animate-fadein: fadein 1s ease-out forwards;
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
 }
 
 @layer base {
